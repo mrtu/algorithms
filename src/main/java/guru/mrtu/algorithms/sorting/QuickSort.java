@@ -1,11 +1,15 @@
 package guru.mrtu.algorithms.sorting;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 public class QuickSort<T extends Comparable<T>> implements Sorter<T> {
 
+    @SuppressWarnings("unchecked")
     public Collection<T> sort(Collection<T> collection) {
-        return null;
+        T[] array = collection.toArray((T[]) new Comparable[collection.size()]);
+        quickSort(array, 0, collection.size() - 1);
+        return Arrays.asList(array);
     }
 
     private void quickSort(T[] collection, int lo, int hi) {
